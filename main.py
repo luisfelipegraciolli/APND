@@ -12,11 +12,9 @@ def main():
         print("[WARN] Arquivo 'cadeia.txt' não encontrado. Usando ""aabb"" como cadeia padrão.")
         cadeia = "aabb"
 
-    print("\n[INFO] Cadeia lida: ", cadeia)
+    print("\n[INFO] Cadeia carregada: ", cadeia)
     
     if not automato.check_alfabeto(cadeia):
-        print(cadeia)
-        print(automato.alfabeto)
         print("[ERRO] A cadeia contém símbolos que não pertencem ao alfabeto do autômato.")
         print("❌ Cadeia REJEITADA (Contém símbolos fora do alfabeto)")
         return

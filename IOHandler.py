@@ -10,31 +10,31 @@ class IO:
         with open(file_name, 'r', encoding='utf-8') as f:
             linhas = [linha.strip() for linha in f if linha.strip() and not linha.startswith('#')]
         
-        alfabeto = (linhas[0].split(','))
-        estados = (linhas[1].split(','))
-        estado_inicial = linhas[2].strip()
-        estados_finais = (linhas[3].split(','))
+        alfabeto = linhas.pop(0)
+        alfabeto_pilha = linhas.pop(0)
+        estados = linhas.pop(0)
+        estado_inicial = linhas.pop(0)  
+        estados_finais = linhas.pop(0)
         transicoes = []
 
-        for linha in linhas[4:]:
-            partes = linha.split(',')
-            origem = partes[0].strip()
-            destino = partes[1].strip()
-            transicoes.append([s.strip() for s in origem.split(',')] + [destino])
-
-        
+        for linha in linhas:
+            transicoes.append(linha.split(','))
 
         print("\n[INFO] Autômato carregado com sucesso:")
-        print("Estados:", estados)
         print("Alfabeto:", alfabeto)
+        print("Alfabeto da Pilha:", alfabeto_pilha)
+        print("Estados:", estados)
         print("Inicial:", estado_inicial)
         print("Finais:", estados)
-        print("Transições:", transicoes)
+        print("Transições:")
+        for transicao in transicoes:
+            print(transicao)
 
-        estados = set(estados)
         alfabeto = set(alfabeto)
+        alfabeto_pilha = set(alfabeto_pilha)
+        estados = set(estados)
         estado_inicial = linhas[2].strip()
         estados_finais = set(estados_finais)
 
-        return APND(alfabeto, estados, estado_inicial, estados_finais, transicoes)
+        return APND(alfabeto, alfabeto_pilha, estados, estado_inicial, estados_finais, transicoes)
     

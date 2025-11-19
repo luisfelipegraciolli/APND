@@ -1,8 +1,9 @@
 from typing import List
 
 class APND():
-    def __init__(self, alfabeto: set, estados: set, estado_inicial: str, estados_finais: set, transicoes: List[List[str]]):
+    def __init__(self, alfabeto: set, alfabeto_pilha: set,estados: set, estado_inicial: str, estados_finais: set, transicoes: List[List[str]]):
         self.alfabeto = alfabeto
+        self.alfabeto_pilha = alfabeto_pilha
         self.estados = estados
         self.estado_inicial = estado_inicial
         self.estados_finais = estados_finais

@@ -1,17 +1,22 @@
 # ALFABETO (Símbolos de entrada, separados por vírgula)
-a,b,c
+a,b
+
+# ALFABETO DA PILHA
+A,Z
 
 # ESTADOS (Nomes dos estados, separados por vírgula)
-q0,q1,q2,qf
+p,q,r
 
 # ESTADO INICIAL (Apenas um estado)
-q0
+p
 
 # ESTADOS FINAIS (Estados de aceitação, separados por vírgula)
-qf
+r
 
-# TRANSIÇÕES (Lista de listas. Formato: estado_origem,símbolo_entrada,estado_destino)
-q0,a,q1
-q1,b,q2
-q2,c,qf
-q2,a,q0
+# TRANSIÇÕES (ε <- para copiar) (Lista de listas. Formato: estado_origem,símbolo_entrada,estado_destino)
+p,a,Z,p,AZ
+p,a,A,p,AA
+p,ε,Z,q,Z
+p,ε,A,q,a
+q,b,A,q,ε
+q,ε,Z,r,Z
