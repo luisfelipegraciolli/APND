@@ -8,6 +8,7 @@ class APND():
         self.estados_finais = estados_finais
         self.transicoes = transicoes
         self.pilha: list = ['z0']  # Inicializa a pilha com o símbolo de fundo
+        self.epsilon = 'ε'
 
     def check_alfabeto(self, cadeia: str) -> bool:
         """Verifica se todos os símbolos da cadeia pertencem ao alfabeto."""
