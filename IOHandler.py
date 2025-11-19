@@ -10,8 +10,8 @@ class IO:
         with open(file_name, 'r', encoding='utf-8') as f:
             linhas = [linha.strip() for linha in f if linha.strip() and not linha.startswith('#')]
         
-        estados = (linhas[0].split(','))
-        alfabeto = (linhas[1].split(','))
+        alfabeto = (linhas[0].split(','))
+        estados = (linhas[1].split(','))
         estado_inicial = linhas[2].strip()
         estados_finais = (linhas[3].split(','))
         transicoes = []

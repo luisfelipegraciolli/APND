@@ -15,6 +15,8 @@ def main():
     print("\n[INFO] Cadeia lida: ", cadeia)
     
     if not automato.check_alfabeto(cadeia):
+        print(cadeia)
+        print(automato.alfabeto)
         print("[ERRO] A cadeia contém símbolos que não pertencem ao alfabeto do autômato.")
         print("❌ Cadeia REJEITADA (Contém símbolos fora do alfabeto)")
         return
