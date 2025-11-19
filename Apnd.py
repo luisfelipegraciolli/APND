@@ -9,10 +9,6 @@ class APND():
         self.transicoes = transicoes
         self.pilha: list = ['z0']  # Inicializa a pilha com o símbolo de fundo
 
-
-
-    def push(self, char: str) -> None:
-        pass
-
-    def pop():
-        pass
+    def check_alfabeto(self, cadeia: str) -> bool:
+        """Verifica se todos os símbolos da cadeia pertencem ao alfabeto."""
+        return set(cadeia).issubset(self.alfabeto)
