@@ -19,7 +19,7 @@ def main():
         print("❌ Cadeia REJEITADA (Contém símbolos fora do alfabeto)")
         return
 
-    resultado = automato.processa_cadeia(cadeia)
+    automato.processa_cadeia(cadeia)
 
 if __name__ == "__main__":
     main()
