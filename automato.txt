@@ -1,0 +1,17 @@
+# ALFABETO (Símbolos de entrada, separados por vírgula)
+a,b,c
+
+# ESTADOS (Nomes dos estados, separados por vírgula)
+q0,q1,q2,qf
+
+# ESTADO INICIAL (Apenas um estado)
+q0
+
+# ESTADOS FINAIS (Estados de aceitação, separados por vírgula)
+qf
+
+# TRANSIÇÕES (Lista de listas. Formato: estado_origem,símbolo_entrada,estado_destino)
+q0,a,q1
+q1,b,q2
+q2,c,qf
+q2,a,q0
