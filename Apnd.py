@@ -8,8 +8,12 @@ class APND():
         self.estado_inicial = estado_inicial
         self.estados_finais = estados_finais
         self.transicoes = transicoes
-        # Inicializa a pilha vazia (aceitação por pilha vazia)
-        self.pilha: list = []
+        # Inicializa a pilha: se houver símbolo de fundo 'Z' no alfabeto da pilha,
+        # coloca-o como marcador de fundo. Caso contrário, inicia vazia.
+        if 'Z' in self.alfabeto_pilha:
+            self.pilha: list = ['Z']
+        else:
+            self.pilha: list = []
         self.epsilon = 'ε'
 
     def check_alfabeto(self, cadeia: str) -> bool:
@@ -58,20 +62,22 @@ class APND():
                     # Transição com símbolo
                     if simbolo_entrada != self.epsilon and pos < len(cadeia) and cadeia[pos] == simbolo_entrada:
                         nova_pilha = pilha[:-1]  # Remove o topo
-                        # Adiciona os símbolos de saída na ordem inversa
-                        for simbolo in reversed(simbolos_saida):
-                            nova_pilha.append(simbolo)
-                        
+                        # Adiciona os símbolos de saída (se não for ε) na ordem inversa
+                        if simbolos_saida != self.epsilon and simbolos_saida != '':
+                            for simbolo in reversed(simbolos_saida):
+                                nova_pilha.append(simbolo)
+
                         nova_pilha_copia = nova_pilha.copy()
                         fila.append((pos + 1, estado_destino, nova_pilha_copia))
                     
                     # Transição epsilon (sem consumir símbolo)
                     elif simbolo_entrada == self.epsilon:
                         nova_pilha = pilha[:-1]  # Remove o topo
-                        # Adiciona os símbolos de saída na ordem inversa
-                        for simbolo in reversed(simbolos_saida):
-                            nova_pilha.append(simbolo)
-                        
+                        # Adiciona os símbolos de saída (se não for ε) na ordem inversa
+                        if simbolos_saida != self.epsilon and simbolos_saida != '':
+                            for simbolo in reversed(simbolos_saida):
+                                nova_pilha.append(simbolo)
+
                         nova_pilha_copia = nova_pilha.copy()
                         fila.append((pos, estado_destino, nova_pilha_copia))
         

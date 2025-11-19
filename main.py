@@ -5,9 +5,12 @@ def main():
     io = IO()
     cadeia: str
     automato: APND = io.ler_automato("automato.txt")
+    nome_arquivo_cadeia = "cadeia.txt"
 
-    if os.path.exists("cadeia.txt"):
-        cadeia = io.ler_cadeia("cadeia.txt")
+    if os.path.exists(nome_arquivo_cadeia):
+        cadeia = io.ler_cadeia(nome_arquivo_cadeia)
+        print("[INFO] Cadeia lida do arquivo " + nome_arquivo_cadeia)
+        
     else:
         print("[WARN] Arquivo 'cadeia.txt' não encontrado. Usando ""aabb"" como cadeia padrão.")
         cadeia = "aabb"

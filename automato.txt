@@ -17,6 +17,6 @@ r
 p,a,Z,p,AZ
 p,a,A,p,AA
 p,ε,Z,q,Z
-p,ε,A,q,a
+p,ε,A,q,A
 q,b,A,q,ε
-q,ε,Z,r,Z
+q,ε,Z,r,ε
